@@ -300,3 +300,92 @@ Penerapan pola desain Model-View-Controller (MVC) membagi komponen perangkat lun
    Dalam contoh kode `userRouter.ts`, fungsi-fungsi seperti `signin`, `signup`, dan `profile` bertindak sebagai Controller dalam pola MVC. Mereka menerima permintaan HTTP dari pengguna, memproses data dari Model (`UserModel`), dan mengembalikan tanggapan yang sesuai.
 
 Penting untuk diingat bahwa implementasi pola desain MVC dapat bervariasi tergantung pada bahasa pemrograman, platform, atau framework yang digunakan. Penerapan yang lebih lengkap dari MVC dapat melibatkan pemisahan yang lebih jelas antara Model, View, dan Controller, serta penggunaan mekanisme untuk menghubungkan ketiganya, seperti routing dan event handling.
+
+### 5. Mampu menunjukkan dan menjelaskan konektivitas ke database
+```
+  import cors from 'cors'
+  import dotenv from 'dotenv'
+  import express, { Request, Response } from 'express'
+  import mongoose from 'mongoose'
+  import path from 'path'
+  import { keyRouter } from './routers/keyRouter'
+  import { orderRouter } from './routers/orderRouter'
+  import { productRouter } from './routers/productRouter'
+  import { seedRouter } from './routers/seedRouter'
+  import { userRouter } from './routers/userRouter'
+  
+  dotenv.config()
+  
+  const MONGODB_URI =
+    process.env.MONGODB_URI || 'mongodb://localhost/tsmernamazonadb'
+  mongoose.set('strictQuery', true)
+  mongoose
+    .connect(MONGODB_URI)
+    .then(() => {
+      console.log('connected to mongodb')
+    })
+    .catch(() => {
+      console.log('error mongodb')
+    })
+  
+  const app = express()
+  app.use(
+    cors({
+      credentials: true,
+      origin: ['http://localhost:5173'],
+    })
+  )
+  
+  app.use(express.json())
+  app.use(express.urlencoded({ extended: true }))
+  
+  app.use('/api/products', productRouter)
+  app.use('/api/users', userRouter)
+  app.use('/api/orders', orderRouter)
+  app.use('/api/seed', seedRouter)
+  app.use('/api/keys', keyRouter)
+  
+  app.use(express.static(path.join(__dirname, '../../frontend/dist')))
+  app.get('*', (req: Request, res: Response) =>
+    res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'))
+  )
+  
+  const PORT: number = parseInt((process.env.PORT || '4000') as string, 10)
+  
+  app.listen(PORT, () => {
+    console.log(`server started at http://localhost:${PORT}`)
+  })
+```
+Kode diatas merupakan file entry point untuk server Node.js dalam aplikasi web. Mari kita jelaskan setiap bagian kode tersebut:
+
+1. Import Statement:
+   - Kode di awal mengimpor modul-modul yang diperlukan untuk membangun server Node.js. Modul-modul tersebut meliputi `cors`, `dotenv`, `express`, `mongoose`, dan `path`.
+
+2. dotenv Configuration:
+   - Baris `dotenv.config()` digunakan untuk mengkonfigurasi modul `dotenv`. Modul ini digunakan untuk memuat variabel lingkungan dari file `.env` ke dalam `process.env`.
+
+3. Mongoose Connection:
+   - Bagian ini berisi konfigurasi dan koneksi ke MongoDB menggunakan modul `mongoose`. Nilai URL koneksi MongoDB diperoleh dari variabel lingkungan `MONGODB_URI` yang dibaca dari file `.env`.
+
+4. Express Setup:
+   - Membuat instance aplikasi Express menggunakan `express()`. Ini merupakan kerangka kerja web yang digunakan untuk menangani permintaan HTTP dan merespons dengan data.
+
+5. Middleware:
+   - Menggunakan middleware `cors` untuk mengizinkan permintaan dari domain yang telah ditentukan.
+   - Menggunakan middleware `express.json()` untuk mengurai permintaan dengan format JSON.
+   - Menggunakan middleware `express.urlencoded()` untuk mengurai permintaan dengan format URL-encoded.
+
+6. Routers:
+   - Menggunakan berbagai router yang diimpor, seperti `productRouter`, `userRouter`, `orderRouter`, `seedRouter`, dan `keyRouter`. Router ini akan menangani rute-rute yang didefinisikan dalam masing-masing file router terkait.
+
+7. Static File and Client-Side Routing:
+   - Menggunakan middleware `express.static()` untuk mengirimkan file statis seperti CSS, JavaScript, dan gambar ke klien dari direktori yang ditentukan.
+   - Menggunakan middleware `app.get()` untuk menangani semua rute yang tidak ditangani oleh router sebelumnya. Dalam hal ini, mengirimkan file HTML utama ke klien untuk menangani routing di sisi klien menggunakan file `index.html` yang berada di direktori `frontend/dist`.
+
+8. Server Listening:
+   - Menentukan nomor port server dengan mengambil nilai dari variabel lingkungan `process.env.PORT` atau menggunakan nilai default `4000`.
+   - Memulai server untuk mendengarkan permintaan pada port yang ditentukan.
+
+Kode ini mengkonfigurasi server HTTP yang menggunakan Express sebagai kerangka kerja web untuk menangani permintaan dan merespons dengan data. Server ini terhubung ke MongoDB menggunakan Mongoose untuk berinteraksi dengan database. Middleware seperti CORS dan pemrosesan body permintaan diatur untuk mengatur permintaan dan respons yang diterima. Rute-rute yang dihandle oleh berbagai router juga ditentukan, serta pengaturan untuk penanganan file statis dan routing di sisi klien.
+
+Selanjutnya, server akan mendengarkan permintaan pada port yang ditentukan dan mencetak pesan ke konsol saat server dimulai.
