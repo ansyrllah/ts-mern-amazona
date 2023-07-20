@@ -1,5 +1,3 @@
-# ts-mern-amazona
-
 # UJIAN AKHIR SEMESTER PBO, PRAKTIKUM PBO, PRAKTIKUM BASIS DATA
 
 ### 1. Mampu menunjukkan keseluruhan Use Case beserta ranking dari tiap Use Case dari produk digital:
@@ -410,6 +408,7 @@ Selanjutnya, server akan mendengarkan permintaan pada port yang ditentukan dan m
   ![crud: delete](/lessons/gif/delete.gif)
 
 ### 7. Mampu menunjukkan dan menjelaskan Graphical User Interface dari produk digital
+  ![GUI Web](/lessons/img/tampilan-homepage.jpg)
 
 ### 8. Mampu menunjukkan dan menjelaskan HTTP connection melalui GUI produk digital
 
