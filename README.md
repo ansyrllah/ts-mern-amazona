@@ -389,3 +389,12 @@ Kode diatas merupakan file entry point untuk server Node.js dalam aplikasi web. 
 Kode ini mengkonfigurasi server HTTP yang menggunakan Express sebagai kerangka kerja web untuk menangani permintaan dan merespons dengan data. Server ini terhubung ke MongoDB menggunakan Mongoose untuk berinteraksi dengan database. Middleware seperti CORS dan pemrosesan body permintaan diatur untuk mengatur permintaan dan respons yang diterima. Rute-rute yang dihandle oleh berbagai router juga ditentukan, serta pengaturan untuk penanganan file statis dan routing di sisi klien.
 
 Selanjutnya, server akan mendengarkan permintaan pada port yang ditentukan dan mencetak pesan ke konsol saat server dimulai.
+
+### 6. Mampu menunjukkan dan menjelaskan pembuatan web service dan setiap operasi CRUD nya 
+
+### 7. Mampu menunjukkan dan menjelaskan Graphical User Interface dari produk digital
+
+### 8. Mampu menunjukkan dan menjelaskan HTTP connection melalui GUI produk digital
+
+### 9. Mampu Mendemonstrsikan produk digitalnya kepada publik dengan cara-cara kreatif melalui video Youtube
+### 10. Bonus: Mendemonstrasikan penggunaan Machine Learning
