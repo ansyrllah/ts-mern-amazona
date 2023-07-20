@@ -392,7 +392,12 @@ Selanjutnya, server akan mendengarkan permintaan pada port yang ditentukan dan m
 
 ### 6. Mampu menunjukkan dan menjelaskan pembuatan web service dan setiap operasi CRUD nya 
 - Pembuatan web service
+  - atur TypeScript dengan Node.js dan Express
   ![web-service](/lessons/gif/web-service.gif)
+  - JSON dari produk
+  ![web-service](/lessons/img/tampilan-produk-json.jpg)
+  - Tampilan produk
+  ![web-service](/lessons/img/tampilan-homepage.jpg)
   
 - Operasi CRUD
   - Create: membuat order
