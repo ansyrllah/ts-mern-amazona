@@ -391,6 +391,18 @@ Kode ini mengkonfigurasi server HTTP yang menggunakan Express sebagai kerangka k
 Selanjutnya, server akan mendengarkan permintaan pada port yang ditentukan dan mencetak pesan ke konsol saat server dimulai.
 
 ### 6. Mampu menunjukkan dan menjelaskan pembuatan web service dan setiap operasi CRUD nya 
+- Pembuatan web service
+  ![web-service](/lessons/gif/web-service.gif)
+  
+- Operasi CRUD
+  - Create: membuat order
+  ![crud: create](/lessons/gif/create.gif)
+  - Read: membaca data product dari database
+  ![crud: read](/lessons/gif/read.gif)
+  - Update: memperbarui keranjang
+  ![crud: update](/lessons/gif/update.gif)
+  - Delete: menghapus produk di keranjang
+  ![crud: delete](/lessons/gif/delete.gif)
 
 ### 7. Mampu menunjukkan dan menjelaskan Graphical User Interface dari produk digital
 
