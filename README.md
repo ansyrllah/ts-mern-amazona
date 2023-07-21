@@ -42,8 +42,7 @@
 | Direktur | Mendapatkan informasi expedition yang paling sering dipakai pengguna | 10 |
 
 ### 2. Mampu mendemonstrasikan Class Diagram dari keseluruhan Use Case produk digital
-
-![class-diagram](https://gitlab.com/ansyrllah/informatics-student/-/raw/main/tokopedia-lite/class-diagram.gif)
+![Demonstrasi Class Diagram](/lessons/gif/class-diagram.gif)
 
 ### 3. Mampu menunjukkan dan menjelaskan penerapan setiap poin dari SOLID Design Principle
 - Single Responsibility Principle (SRP)
