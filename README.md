@@ -414,6 +414,89 @@ Selanjutnya, server akan mendengarkan permintaan pada port yang ditentukan dan m
   ![GUI Web](/lessons/gif/gui.gif)
 
 ### 8. Mampu menunjukkan dan menjelaskan HTTP connection melalui GUI produk digital
+Untuk menggambarkan bagaimana HTTP connection berjalan dalam situs web e-commerce Anda yang dibangun dengan tumpukan MERN (MongoDB, ExpressJS, React, dan Node.js), mari kita perhatikan bagaimana aliran data terjadi antara klien (browser) dan server untuk beberapa contoh interaksi:
 
+1. Mengambil Daftar Produk:
+  ![HTTP: get products](/lessons/gif/getproducts.gif)
+   
+   - Pengguna membuka situs web e-commerce Anda di browser mereka.
+   - Browser melakukan permintaan HTTP GET ke server untuk mendapatkan daftar produk yang tersedia.
+     ```
+     productRouter.get(
+        '/',
+        asyncHandler(async (req, res) => {
+          const products = await ProductModel.find()
+          res.json(products)
+        })
+      )
+     ```
+   - Server menerima permintaan tersebut dan mengakses data produk dari MongoDB menggunakan model yang terhubung dengan database.
+   - Data produk diambil dari database dan dikirim sebagai respons HTTP dari server ke browser.
+   - Di sisi klien, React mengolah respons HTTP dan menampilkan daftar produk di GUI
+   ```
+     <div>
+      <Row>
+        <Col md={6}>
+          <img className="large" src={product.image} alt={product.name}></img>
+        </Col>
+        <Col md={3}>
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <Helmet>
+                <title>{product.name}</title>
+              </Helmet>
+              <h1>{product.name}</h1>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <Rating
+                rating={product.rating}
+                numReviews={product.numReviews}
+              ></Rating>
+            </ListGroup.Item>
+            <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
+            <ListGroup.Item>
+              Description:
+              <p>{product.description}</p>
+            </ListGroup.Item>
+          </ListGroup>
+        </Col>
+        <Col md={3}>
+          <Card>
+            <Card.Body>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Price:</Col>
+                    <Col>${product.price}</Col>
+                  </Row>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Status:</Col>
+                    <Col>
+                      {product.countInStock > 0 ? (
+                        <Badge bg="success">In Stock</Badge>
+                      ) : (
+                        <Badge bg="danger">Unavailable</Badge>
+                      )}
+                    </Col>
+                  </Row>
+                </ListGroup.Item>
+                {product.countInStock > 0 && (
+                  <ListGroup.Item>
+                    <div className="d-grid">
+                      <Button onClick={addToCartHandler} variant="primary">
+                        Add to Cart
+                      </Button>
+                    </div>
+                  </ListGroup.Item>
+                )}
+              </ListGroup>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </div>
+   ```
 ### 9. Mampu Mendemonstrsikan produk digitalnya kepada publik dengan cara-cara kreatif melalui video Youtube
 ### 10. Bonus: Mendemonstrasikan penggunaan Machine Learning
