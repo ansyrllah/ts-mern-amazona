@@ -498,5 +498,8 @@ Untuk menggambarkan bagaimana HTTP connection berjalan dalam situs web e-commerc
       </Row>
     </div>
    ```
+2. Menambahkan Produk ke Keranjang Belanja (On going)
+3. Pembuatan Pesanan (On going)
+4. Mengambil Data Pengguna (On going)
 ### 9. Mampu Mendemonstrsikan produk digitalnya kepada publik dengan cara-cara kreatif melalui video Youtube
 ### 10. Bonus: Mendemonstrasikan penggunaan Machine Learning
