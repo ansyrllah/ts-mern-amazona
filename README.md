@@ -1,5 +1,3 @@
-# ts-mern-amazona
-
 # UJIAN AKHIR SEMESTER PBO, PRAKTIKUM PBO, PRAKTIKUM BASIS DATA
 
 ### 1. Mampu menunjukkan keseluruhan Use Case beserta ranking dari tiap Use Case dari produk digital:
@@ -391,8 +389,26 @@ Kode ini mengkonfigurasi server HTTP yang menggunakan Express sebagai kerangka k
 Selanjutnya, server akan mendengarkan permintaan pada port yang ditentukan dan mencetak pesan ke konsol saat server dimulai.
 
 ### 6. Mampu menunjukkan dan menjelaskan pembuatan web service dan setiap operasi CRUD nya 
+- Pembuatan web service
+  - atur TypeScript dengan Node.js dan Express
+  ![web-service](/lessons/gif/web-service.gif)
+  - JSON dari produk
+  ![web-service](/lessons/img/tampilan-produk-json.jpg)
+  - Tampilan produk
+  ![web-service](/lessons/img/tampilan-homepage.jpg)
+  
+- Operasi CRUD
+  - Create: membuat order
+  ![crud: create](/lessons/gif/create.gif)
+  - Read: membaca data product dari database
+  ![crud: read](/lessons/gif/read.gif)
+  - Update: memperbarui keranjang
+  ![crud: update](/lessons/gif/update.gif)
+  - Delete: menghapus produk di keranjang
+  ![crud: delete](/lessons/gif/delete.gif)
 
 ### 7. Mampu menunjukkan dan menjelaskan Graphical User Interface dari produk digital
+  ![GUI Web](/lessons/img/tampilan-homepage.jpg)
 
 ### 8. Mampu menunjukkan dan menjelaskan HTTP connection melalui GUI produk digital
 
