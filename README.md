@@ -404,11 +404,14 @@ Selanjutnya, server akan mendengarkan permintaan pada port yang ditentukan dan m
   ![crud: read](/lessons/gif/read.gif)
   - Update: memperbarui keranjang
   ![crud: update](/lessons/gif/update.gif)
+  - Update: memperbarui kata sandi user
+  ![crud: update](/lessons/gif/updatepass.gif)
   - Delete: menghapus produk di keranjang
   ![crud: delete](/lessons/gif/delete.gif)
 
 ### 7. Mampu menunjukkan dan menjelaskan Graphical User Interface dari produk digital
   ![GUI Web](/lessons/img/tampilan-homepage.jpg)
+  ![GUI Web](/lessons/gif/gui.gif)
 
 ### 8. Mampu menunjukkan dan menjelaskan HTTP connection melalui GUI produk digital
 
